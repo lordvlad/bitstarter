@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 var express = require('express'),
-os= require('os'),
+os = require('os'),
+fs = require('fs'),
 app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
