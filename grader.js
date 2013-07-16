@@ -22,14 +22,18 @@ References:
 */
 
 var fs = require('fs');
+var crypto = require('crypto');
 var program = require('commander');
 var cheerio = require('cheerio');
+var rest = require('restler');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
 
 var assertFileExists = function(infile) {
     var instr = infile.toString();
-    if(!fs.existsSync(instr)) {
+    if (infile.match(/https?:\/\//)){
+	return instr;
+    }else if(!fs.existsSync(instr)) {
         console.log("%s does not exist. Exiting.", instr);
         process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
     }
@@ -61,14 +65,36 @@ var clone = function(fn) {
     return fn.bind({});
 };
 
+var conti = function(program){
+    var checkJson = checkHtmlFile(program.file, program.checks);
+    var outJson = JSON.stringify(checkJson, null, 4);
+    fs.unlink( program.file, function(err){
+	console.log(outJson);
+    });
+}
+
 if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
         .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
+    if ( program.file.match( /https?:\/\// ) ){
+	// console.log( 'fetching', program.file );
+	rest.get( program.file ).on( 'complete', function(result){
+	    program.file  = crypto.createHash('sha1').update(result, 'utf-8').digest('hex');
+	    if ( result instanceof Error ){
+		console.log( result );
+	    } else {
+		// console.log( 'got', result.length, 'bytes' );
+		fs.writeFile( program.file, result, 'utf-8', function( e, s ){
+		    if( e ){ console.log( e ); }
+		    else { conti( program ); }
+		});
+	    }
+	});
+    } else {
+	conti( program );
+    }
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }

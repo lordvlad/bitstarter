@@ -2,12 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>My awesome bitstarter</title>
-    <link type="text/css" rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-2.3.2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"/>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/spruce/bootstrap.min.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
     <style type="text/css">
       body {
-      padding-top: 20px;
-      padding-bottom: 40px;
+      padding-top: 4em;
+      padding-bottom: 4em;
       }
       .container {
       width: 960px;
@@ -18,83 +20,166 @@
       .navigation, .pitch, .section1, .section2, .faq, .footer {
       padding: 10px 0px 10px 0px;
       }
-      .video, .thermometer, .order, .social {
-      border: 1px dotted;
-      text-align: center;
+      .footer{
+      margin-top: 4em;
+      }
+      .footer a{
+      margin-right: 1em;
       }
       .video {
-      height: 124px;
+      /* height: 124px;*/
       line-height: 124px;
+      text-align: center;
       }
-      .thermometer, .order, .social {
-      Height: 40px;
-      line-height: 40px;
+      .social a{
+      font-size: 2em;
+      }
+      .social a:hover {
+      text-decoration: none;
       }
       div.row {
-      border: 1px solid;
+      /*border: 1px solid;*/
+      }
+      .container-fluid {
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      }
+      .copyright {
+      font-family: arial;
+      font-size: .7em;
+opacity: .5;
+      }
+      .icons-ul i{
+      min-width: 1.5em;
+      display: inline-block;
+      }
+      #bookmark {
+        text-decoration: none;
+        display: none;
+        position: fixed;
+        right: 1em;
+        top: -.4em;
+      }
+      .expl {
+        border-bottom: dotted 1px grey;
+      }
+      .expl:hover {
+        border-bottom: dotted 1px black;
       }
     </style>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <title>signs - deine geb&auml;rden</Title>
   </head>
   <body>
-    <div class="container">
-      <div class="row navigation">
-	<div class="span2 logo">
-	  logo
-	</div>
-	<div class="span6 blank">
-	  blank
-	</div>
-	<div class="span4 about">
-	  about
+    <a id="bookmark" href="#top"><i class="icon-bookmark icon-3x"></i></a>
+    <div class="container-fluid" id="top">
+      <div class="row-fluid Navigation">
+	<div class="span6 logo"><i class="icon-thumbs-up icon-3x">&nbsp;signs</i></div>
+	<div class="span6 pull-right text-right about">
+	  <a href="#what">was</a>
+	  <a href="#why">warum</a>
+	  <a href="#how">konzept</a>
+	  <a href="#progress">fortschritt</a>
+	  <a href="#faq"><span class="expl" title="frequently asked questions - oft gestellte fragen">FAQ</span></a>
 	</div>
       </div>
-      <div class="row heading">
+      <div class="row-fluid heading">
 	<div class="span12">
-	  <h1>my awesome title</h1>
+	  <h1>DEINE Geb&auml;rden</h1>
 	</div>
       </div>
-      <div class="row subheading">
+      <div class="row-fluid subheading">
 	<div class="span12">
-	  <p class="lead">this is my first bitstarter. ever. or?</p>
+	  <p class="lead">Noch kein Geb&auml;rdenw&ouml;rterbuch gefunden, welches dich zufrieden stellt?</p>
+	  <p>Dann hilf uns, ein besseres zu gestalten. Mit deinen Geb&auml;rden.</p>
 	</div>
       </div>
-      <div class="row pitch">
+      <div class="row-fluid pitch" id="what">
 	<div class="span6 video">
-	  video
+	<img src="http://wpmu.org/wp-content/uploads/2012/07/Responsive-WordPress-theme.png">
 	</div>
 	<div class="span6">
-	  <div class="thermometer">
-	    thermometer
-	  </div>
-	  <div class="order">
-	    order
-	  </div>
-	  <div class="social">
-	    social
+	  <p class="lead">so weit sind wir schon</p>
+	</div>
+	<div class="thermometer span6">
+	  <div class="progress progress-striped">
+	    <div class="bar" style="width: 5%;"></div>
 	  </div>
 	</div>
-      </div>
-      <div class="row section1">
-	<div class="span12">
-	  marketing section 1
+	<div class="order span6" style="display:none">
+	  <a href="" target="_new"><i class="icon-money icon-2x">&nbsp;unterst&uuml;tze uns</i></a>
+	</div>
+	<div class="span6">
+	  <p class="lead">empfehle uns weiter</p>
+	</div>
+	<div class="social span6">
+	  <a href="//www.facebook.com/" target="_new" title="sag das wir dir gefallen"><i class="icon-facebook"></i></a>
+	  <a href="//www.twitter.com/" target="_new" title="twitter &uuml;ber uns"><i class="icon-twitter"></i></a>
+	  <a href="//plus.google.com/" target="_new" title="gib uns ein +1"><i class="icon-google-plus"></i></a>
+	  <a href="mailto:?subject=schau dir das mal an&body=Hey,%0A%0D%0A%0Dich hab diese Seite gefunden, und dachte mir, das es dich Interessiert:%0A%0D%0A%0Dhttp%3A%2F%2Fwww.signs.de" target="_new" title="empfehl uns per email"><i class="icon-envelope"></i></a>
 	</div>
       </div>
-      <div class="row section2">
+      <div class="row-fluid section1">
 	<div class="span12">
-	  marketing section 2
+	  <h2 id="why">warum wir das machen</h2>
+	  <section>
+	    bla
+	  </section>
 	</div>
       </div>
-      <div class="row faq">
+      <div class="row-fluid section2">
 	<div class="span12">
-	  FAQ
+	  <h2 id="how">wie wir das machen</h2>
+	  <section>
+	    bla
+	  </section>
+	  <h2 id="progress">wie weit wir sind</h2>
+	  <section>
+	    <ul class="icons-ul">
+	      <li><i class="icon-check"></i>Idee aufschreiben</li>
+	      <li><i class="icon-check"></i>Erste Skizze einer Webseite</li>
+	      <li><i class="icon-check"></i>Konkurrenz anschauen</li>
+	      <li><i class="icon-check-empty"></i>Konzept ausarbeiten</li>
+	    </ul>
+	  </section>
 	</div>
       </div>
-      <div class="row footer">
+      <div class="row-fluid faq">
 	<div class="span12">
-	  footer
+	  <h2 id="faq"><span class="expl" title="frequently asked questions - oft gestellte Fragen">F.A.Q.</span></h2>
+	  <section>
+	    bla
+	  </section>
+	</div>
+      </div>
+      <div class="row-fluid footer">
+	<div class="span6">
+	  <a href="/ueberuns" title="ueber uns"><i class="icon-info">&nbsp;&uuml;ber uns</i></a>
+	  <a href="/privatsphaere" title="privatsphaere"><i class="icon-eye-open">&nbsp;privatsph&auml;re</i></a>
+	  <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#97;&#108;&#100;&#101;&#109;&#97;&#114;&#46;&#114;&#101;&#117;&#115;&#99;&#104;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;?subject=hallo signs-team' title="schreib uns" target="_new"><i class="icon-envelope">&nbsp;schreib uns</i></a>
+	  <a href="/uebersicht" title="sitemap"><i class="icon-sitemap">&nbsp;sitemap</i></a>
+	</div>
+	<div class="span6 pull-right text-right">
+	  erstellt mit <i class="icon-html5" title="HTML5"></i>&nbsp;<i class="icon-css3" title="CSS3"></i>&nbsp;und&nbsp;<i class="icon-heart" title="Liebe"></i>
+	</div>
+	<div class="span12 copyright">
+	  &copy;&nbsp;2013&nbsp;waldemar reusch
 	</div>
       </div>
     </div>
+    <script>
+      $(".expl, .social a").tooltip();
+      var b = $("#bookmark");
+      $(window.document).on("scroll",function(){
+      if(window.pageYOffset>100 && !b.is(":visible")){
+        b.stop().fadeIn();
+      } else if (window.pageYOffset<100 && b.is(":visible")){
+	b.fadeOut();
+      }
+      });
+    </script>
   </body>
 </html>
     
