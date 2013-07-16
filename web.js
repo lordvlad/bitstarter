@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 var express = require('express'),
+port = process.env.PORT || 8080;
 os = require('os'),
 fs = require('fs'),
-app = express.createServer(express.logger());
-
-app.get('/', function(request, response) {
-    response.send(new Buffer(fs.readFileSync('index.html', 'utf-8')).toString('utf-8'));
-});
-
-var port = process.env.PORT || 8080;
-app.listen(port, function() {
-    console.log("Listening on " + port);
-    console.log(os.networkInterfaces());
-});
+app = express.createServer()
+    .use(express.logger())
+    .use(express.static(__dirname + '/static'))
+    .use(express.compress())
+    .listen(port, function(){
+	console.log("listening on " + port);
+    });
