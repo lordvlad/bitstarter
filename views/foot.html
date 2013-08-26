@@ -1,0 +1,37 @@
+      <div class="row-fluid footer">
+	<div class="span6 internal">
+	  <a href="/ueberuns" title="&uuml;ber uns"><i class="icon-info">&nbsp;&uuml;ber uns</i></a>
+	  <a href="/privatsphaere" title="privatsph&auml;re"><i class="icon-eye-open">&nbsp;privatsph&auml;re</i></a>
+	  <a href='&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#119;&#97;&#108;&#100;&#101;&#109;&#97;&#114;&#46;&#114;&#101;&#117;&#115;&#99;&#104;&#64;&#103;&#111;&#111;&#103;&#108;&#101;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;?subject=hallo signs-team' title="schreib uns" target="_new"><i class="icon-envelope">&nbsp;schreib uns</i></a>
+	  <a href="/uebersicht" title="&uuml;bersicht der webseite" class="expl"><i class="icon-sitemap">&nbsp;sitemap</i></a>
+	</div>
+	<div class="span6 pull-right text-right">
+	  erstellt mit
+	  <a href="http://fortawesome.github.io/Font-Awesome/examples/" target="_new"><i class="icon-magic" title="fontawesome"></i></a>
+	  <a href="http://twitter.github.io/bootstrap/index.html" target="_new"><i class="icon-twitter" title="twitter bootstrap"></i></a>
+	  <a href="http://www.heroku.com" target="_new"><i class="icon-cogs" title="heroku"></i></a>
+	  <a href="http://www.github.com" target="_new"><i class="icon-github" title="github"></i></a>
+	  <a href="http://www.html5rocks.com" target="_new"><i class="icon-html5" title="HTML5"></i></a>
+	  <a href="http://www.css3.com" target="_new"><i class="icon-css3" title="CSS3"></i></a>
+	  und
+	  <i class="icon-heart" title="Liebe"></i>
+	</div>
+	<div class="span12 copyright">
+	  homepage&nbsp;&copy;&nbsp;2013&nbsp;waldemar reusch<br>
+	  favicon&nbsp;&copy;&nbsp;http://www.visualpharm.com
+	</div>
+      </div>
+    </div>
+    <script>
+      $(".expl, .social a").tooltip();
+      var b = $("#bookmark");
+      $(window.document).on("scroll",function(){
+        if(window.pageYOffset>100 && !b.is(":visible")){
+          b.stop().fadeIn();
+        } else if (window.pageYOffset<100 && b.is(":visible")){
+	  b.stop().fadeOut();
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"/>
+    <link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.2/spruce/bootstrap.min.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <link rel="icon" type="image/png"  href="favicon.png">
+    <title>{{title}}</title>
+  </head>
+  <body id="body">
+    <a id="bookmark" href="#body"><i class="icon-bookmark icon-3x"></i></a>
+    {{#success}}
+    <div class="alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <i class="icon-ok"></i>&nbsp;<span class="message">{{.}}</span>
+    </div>
+    {{/success}}
+    {{#error}}
+    <div class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <i class="icon-exclamation"></i>&nbsp;<span class="message">{{.}}</span>
+    </div>
+    {{/error}}
+    {{#info}}
+    <div class="alert alert-info">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <i class="icon-info"></i>&nbsp;<span class="message">{{.}}</span>
+    </div>
+    {{/info}}
+    <div class="container-fluid">
+      <div class="row-fluid Navigation">
+	<div class="span6 logo"><img src="favicon.png" />your&nbsp;signs</div>
+	<div class="span6 pull-right text-right about">
+	  <a href="#what">was</a>
+	  <a href="#why">warum</a>
+	  <a href="#how">konzept</a>
+	  <a href="#progress">fortschritt</a>
+	  <a href="#faq"><span class="expl" title="frequently asked questions - oft gestellte fragen">FAQ</span></a>
+	</div>
+      </div>
