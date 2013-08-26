@@ -16,6 +16,7 @@ p.lead {
 }
 .footer .internal a{
     margin-right: 1em;
+    white-space: nowrap;
 }
 .video {
     /* height: 124px;*/
@@ -42,7 +43,7 @@ div.row {
     opacity: .5;
 }
 .icons-ul i{
-    min-width: 1.5em;
+    width: 1.5em;
     display: inline-block;
 }
 #bookmark {
@@ -57,4 +58,12 @@ div.row {
 }
 .expl:hover {
     border-bottom: dotted 1px black;
+}
+.login .services .span2{
+    margin-bottom: .65em;
+    text-align: left;
+}
+.login .services .span2 i{
+    width: 1.5em;
+    display: inline-block;
 }

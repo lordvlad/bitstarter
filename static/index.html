@@ -14,6 +14,18 @@
   </head>
   <body id="body">
     <a id="bookmark" href="#body"><i class="icon-bookmark icon-3x"></i></a>
+    <div class="alert alert-success hide slide up">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <i class="icon-ok"></i>&nbsp;<span class="message">perfekt</span>
+    </div>
+    <div class="alert alert-error hide slide up">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <i class="icon-exclamation"></i>&nbsp;<span class="message">perfekt</span>
+    </div>
+    <div class="alert alert-info hide">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <i class="icon-info"></i>&nbsp;<span class="message">perfekt</span>
+    </diV>
     <div class="container-fluid">
       <div class="row-fluid Navigation">
 	<div class="span6 logo"><img src="favicon.png" />your&nbsp;signs</div>
@@ -40,21 +52,27 @@
 	<div class="span6 video">
 	<img src="http://wpmu.org/wp-content/uploads/2012/07/Responsive-WordPress-theme.png">
 	</div>
-	<div class="span6">
-	  <p class="lead">so weit sind wir schon</p>
-	</div>
 	<div class="thermometer span6">
+	  <p class="lead">so weit sind wir schon</p>
 	  <div class="progress progress-striped">
 	    <div class="bar" style="width: 5%;"></div>
 	  </div>
 	</div>
-	<div class="order span6" style="display:none">
+	<div class="newsletter span6">
+	  <p class="lead">abboniere unseren <span class="expl" title="neuigkeiten per email">newsletter</span></p>
+	  <form action="/subscribe" method="POST">
+	  <div class="input-prepend input-append">
+	    <span class="add-on"><i class="icon-envelope"></i></span>
+	    <input name="email" class="" type="email" placeholder="Email Adresse">
+	    <button type="submit" class="btn btn-success"><i class="icon-ok"></i></buttono>
+	  </div>
+	  </form>
+	</div>
+	<div class="order span6 hide">
 	  <a href="" target="_new"><i class="icon-money icon-2x">&nbsp;unterst&uuml;tze uns</i></a>
 	</div>
-	<div class="span6">
-	  <p class="lead">empfehle uns weiter</p>
-	</div>
 	<div class="social span6">
+	  <p class="lead">empfehle uns weiter</p>
 	  <a href="//www.facebook.com/" target="_new" title="sag, dass wir dir gefallen"><i class="icon-facebook"></i></a>
 	  <a href="//www.twitter.com/" target="_new" title="twitter &uuml;ber uns"><i class="icon-twitter"></i></a>
 	  <a href="//plus.google.com/" target="_new" title="gib uns ein +1"><i class="icon-google-plus"></i></a>
@@ -104,6 +122,8 @@
 	</div>
 	<div class="span6 pull-right text-right">
 	  erstellt mit
+	  <a href="http://fortawesome.github.io/Font-Awesome/examples/" target="_new"><i class="icon-magic" title="fontawesome"></i></a>
+	  <a href="http://twitter.github.io/bootstrap/index.html" target="_new"><i class="icon-twitter" title="twitter bootstrap"></i></a>
 	  <a href="http://www.heroku.com" target="_new"><i class="icon-cogs" title="heroku"></i></a>
 	  <a href="http://www.github.com" target="_new"><i class="icon-github" title="github"></i></a>
 	  <a href="http://www.html5rocks.com" target="_new"><i class="icon-html5" title="HTML5"></i></a>
@@ -117,17 +137,69 @@
 	</div>
       </div>
     </div>
+    <div id="login" class="login modal hide fade">
+      <!--
+	<div class="modal-header">
+	  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times</button>
+	  <h3>melde dich an</h3>
+	</div>
+	<div class="modal-body">
+	  <div class="span3 services">
+	    <a class="btn span2" href="/auth/google">
+	      <i class="icon-google-plus"></i>&nbsp;google plus</a>
+	    <a class="btn span2" href="/auth/facebook">
+	      <i class="icon-facebook"></i>&nbsp;facebook</a>
+	    <a class="btn span2" href="/auth/twitter">
+	      <i class="icon-twitter"></i>&nbsp;twitter</a>
+	    <a class="btn span2" href="/auth/github">
+	      <i class="icon-github"></i>&nbsp;github</a>
+	  </div>
+	  <div class="span3">
+		<form action="/auth/local" method="POST">
+
+		  <div class="input-prepend">
+		    <span class="add-on"><i class="icon-envelope"></i></span>
+		    <input class="span2" type="email" placeholder="Email Adresse">
+		  </div><br>
+		  <div class="input-prepend">
+		    <span class="add-on"><i class="icon-key"></i></span>
+		    <input class="span2" type="password" placeholder="Passwort">
+		  </div><br>
+		  <div>
+		    <input type="submit" class="btn btn-success span2" value="login"></input>
+		  </div>
+		  <br>
+		  <small><a href="javascript:void(0);">registrier dich</a></small>
+		</form>
+
+	  </div>
+	</div>
+	<div class="modal-footer">
+	  <div class="span pull-left hide worker">
+	    <i class="icon-spin icon-cog icon-2x"></i>
+	    <span class="message"></span>
+	  </div>
+	  <button class="btn" data-dismiss="modal" aria-hidden="true">schlie&szlig;en</button>
+	</div>
+    </div>
+    -->
     <script>
       $(".expl, .social a").tooltip();
+      $(".login .services a").on("click",function(){
+        $(".login .worker").show().find(".message").html("verbinde...");
+      });
+      if(location.hash==="#loginpop"){
+        $(".modal.login").modal("show");
+        location.hash="";
+      }
       var b = $("#bookmark");
       $(window.document).on("scroll",function(){
-      if(window.pageYOffset>100 && !b.is(":visible")){
-        b.stop().fadeIn();
-      } else if (window.pageYOffset<100 && b.is(":visible")){
-	b.stop().fadeOut();
-      }
+        if(window.pageYOffset>100 && !b.is(":visible")){
+          b.stop().fadeIn();
+        } else if (window.pageYOffset<100 && b.is(":visible")){
+	  b.stop().fadeOut();
+        }
       });
     </script>
   </body>
 </html>
-    

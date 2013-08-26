@@ -1,10 +1,12 @@
 {
-  "name": "bitstarter",
-  "version": "0.0.2",
+  "name": "your-signs",
+  "description": "the kickstarter page for your-signs",
+  "version": "0.0.3",
   "dependencies": {
-    "express": "2.5.x"
+    "express": "3.x",
+    "jade": "0.20.0"
   },
-  "engines": {
+  "Engines": {
     "node": "0.8.x",
     "npm": "1.1.x"
   }
