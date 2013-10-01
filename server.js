@@ -3,6 +3,10 @@
  * nodejs-express-mongoose-demo
  * Copyright(c) 2013 Madhusudhan Srinivasa <madhums8@gmail.com>
  * MIT Licensed
+ * 
+ * Your-Signs
+ * Copyright(c) 2013 Waldemar Reusch <waldemar.reusch@googlemail.com>
+ * MIT Licensed
  */
 
 /**
@@ -44,7 +48,7 @@ require('./config/express')(app, config, passport)
 require('./config/routes')(app, passport)
 
 // Start the app by listening on <port>
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 8080
 app.listen(port)
 console.log('Express app started on port '+port)
 

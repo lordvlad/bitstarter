@@ -1,52 +1,51 @@
 {
-  "name": "nodejs-express-mongoose-demo",
-  "description": "A demo app illustrating the usage of express, mongoose, passportjs, jade and other modules in nodejs",
-  "keywords": [
-    "express",
-    "mongoose",
-    "mongodb",
-    "passport",
-    "demo"
-  ],
-  "version": "3.0.0",
-  "private": false,
-  "author": "Madhusudhan Srinivasa <madhums8@gmail.com> (http://madhums.github.com)",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/madhums/node-express-mongoose-demo.git"
-  },
-  "engines": {
-    "node": "0.10.x",
-    "npm":  "1.2.x"
-  },
-  "scripts": {
-    "start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
-    "test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec test/test-*.js"
-  },
-  "dependencies": {
-    "express": "latest",
-    "jade": "latest",
-    "mongoose": "latest",
-    "connect-mongo": "latest",
-    "connect-flash": "latest",
-    "passport": "latest",
-    "passport-local": "latest",
-    "passport-facebook": "latest",
-    "passport-twitter": "latest",
-    "passport-github": "latest",
-    "passport-google-oauth": "latest",
-    "passport-linkedin": "latest",
-    "imager": "latest",
-    "notifier": "latest",
-    "underscore": "latest",
-    "async": "latest",
-    "view-helpers": "latest",
-    "forever": "latest"
-  },
-  "devDependencies": {
-    "supertest": "latest",
-    "should": "latest",
-    "mocha": "latest",
-    "nodemon": "latest"
-  }
+    "name": "Your-Signs",
+    "description": "Noch kein Gebärdensprach Wörterbuch gefunden, was dich zufrieden stellt? Dann hilf uns ein besseres zu gestalten. Mit deinen Gebärden.",
+    "keywords": [
+	"dgs",
+	"Geärdensprache",
+	"deutsche Gebärdensprache",
+	"Wörterbuch"
+    ],
+    "version": "0.1.0",
+    "private": false,
+    "author": "Waldemar Reusch <waldemar.reusch@googlemail.com> (http://www.github.com/lordvlad)",
+    "repository" : {
+	"type" : "git",
+	"url" : "https://github.com/your-signs.git"
+    },
+    "engines": {
+	"node": "0.10.x",
+	"npm":  "1.2.x"
+    },
+    "scripts": {
+	"start": "NODE_ENV=development ./node_modules/.bin/nodemon server.js",
+	"test": "NODE_ENV=test ./node_modules/.bin/mocha --reporter spec test/test-*.js"
+    },
+    "dependencies": {
+	"express": "latest",
+	"jade": "latest",
+	"mustache":"latest",
+	"mongoose": "latest",
+	"connect-mongo": "latest",
+	"connect-flash": "latest",
+	"passport": "latest",
+	"passport-local": "latest",
+	"passport-facebook": "latest",
+	"passport-twitter": "latest",
+	"passport-github": "latest",
+	"passport-google-oauth": "latest",
+	"imager": "latest",
+	"notifier": "latest",
+	"underscore": "latest",
+	"async": "latest",
+	"view-helpers": "latest",
+	"forever": "latest"
+    },
+    "devDependencies": {
+	"supertest": "latest",
+	"should": "latest",
+	"mocha": "latest",
+	"nodemon": "latest"
+    }
 }

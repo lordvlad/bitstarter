@@ -2,21 +2,7 @@
  * Module dependencies.
  */
 
-var async = require('async')
-
-/**
- * Controllers
- */
-
-var users = require('../app/controllers/users')
-  , articles = require('../app/controllers/articles')
-  , auth = require('./middlewares/authorization')
-
-/**
- * Route middlewares
- */
-
-var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization]
+//var async = require('async')
 
 /**
  * Expose routes
@@ -25,6 +11,7 @@ var articleAuth = [auth.requiresLogin, auth.article.hasAuthorization]
 module.exports = function (app, passport) {
 
   // user routes
+  var users = require('../app/controllers/users')
   app.get('/login', users.login)
   app.get('/signup', users.signup)
   app.get('/logout', users.logout)
@@ -87,6 +74,9 @@ module.exports = function (app, passport) {
   app.param('userId', users.user)
 
   // article routes
+  var articles = require('../app/controllers/articles')
+    ,auth = require('./middlewares/authorization')
+    ,articleAuth = [auth.requiresLogin, auth.article.hasAuthorization]
   app.get('/articles', articles.index)
   app.get('/articles/new', auth.requiresLogin, articles.new)
   app.post('/articles', auth.requiresLogin, articles.create)
