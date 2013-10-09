@@ -25,7 +25,8 @@
     "dependencies": {
 	"express": "latest",
 	"jade": "latest",
-	"mustache":"latest",
+	"consolidate": "latest",
+	"handlebars": "latest",
 	"mongoose": "latest",
 	"connect-mongo": "latest",
 	"connect-flash": "latest",

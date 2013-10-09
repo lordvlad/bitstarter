@@ -8,8 +8,19 @@ var express = require('express')
 , flash = require('connect-flash')
 , helpers = require('view-helpers')
 , pkg = require('../package.json')
+, cons = require('consolidate')
+, Handlebars = require('handlebars')
+, fs = require('fs')
+
 
 module.exports = function (app, config, passport) {
+    
+    config.partials = config.root + '/app/views/partials';
+    
+    Handlebars.registerPartial('layout-top', fs.readFileSync(config.partials+'/layout-top.html', 'utf-8'));
+    Handlebars.registerPartial('layout-bottom', fs.readFileSync(config.partials+'/layout-bottom.html', 'utf-8'));
+    Handlebars.registerPartial('layout-includes', fs.readFileSync(config.partials+'/layout-includes.html', 'utf-8'));
+    Handlebars.registerPartial('layout-flash', fs.readFileSync(config.partials+'/layout-flash.html', 'utf-8'));
 
     app.set('showStackError', true)
 
@@ -30,8 +41,10 @@ module.exports = function (app, config, passport) {
     }
 
     // set views path, template engine and default layout
+    app.engine('html', cons.handlebars)
+    app.set('view engine', 'html')
+    app.set('view options', {layout: false})
     app.set('views', config.root + '/app/views')
-    app.set('view engine', 'jade')
 
     app.configure(function () {
 	// expose package.json to views
