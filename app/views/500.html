@@ -1,0 +1,17 @@
+{{>layout-top}}
+
+<div class="container">
+  
+  {{>layout-header}}
+
+  <div class="jumbotron">
+    <h1>500</h1>
+    <p class="lead">Error: {{message}}</p>
+    <p><a class="btn btn-lg btn-success" href="{{prev}}">Return</a></p>
+  </div>
+
+  {{#stack}}<pre>{{stack}}</pre>{{/stack}}
+
+</div>
+
+{{>layout-bottom}}

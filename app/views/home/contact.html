@@ -1,0 +1,19 @@
+{{>layout-top}}
+
+<div class="container">
+
+  {{>layout-header}}
+  {{>layout-messages}}
+
+  <div class="jumbotron">
+    <h1>Complaints? Suggestions?</h1>
+    <form method="POST">
+    <p class="lead">
+      <textarea name="message" class="form-control" rows="3"></textarea>
+    </p>
+    <p><button type="submit" class="btn btn-lg btn-success">Send it!</button></p>
+  </form>
+  </div>
+</div>
+
+{{>layout-bottom}}

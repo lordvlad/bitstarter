@@ -1,0 +1,46 @@
+{{>layout-top}}
+
+<div class="container">
+
+  {{>layout-header}}
+  
+  {{#pkg}}
+  <div class="jumbotron">
+    <h1>About {{name}} {{version}}</h1>
+    <p class="lead">{{description}}</p>
+  </div>
+
+  <div class="row marketing">
+    <div class="col-lg-6">
+      <h4>GitHub</h4>
+      <p>
+	<a href="{{homepage}}" target="_new">{{name}} at github</a><br>
+	<a href="{{bugs}}" target="_new">report an issue</a>
+      </p>
+      <h4>Team</h4>
+      {{#author}}
+      <p>{{name}}&nbsp(<a href="{{url}}" target="_new">{{url}}</a>)</p>
+      {{/author}}
+      {{#contributors}}
+      <p>{{name}}&nbsp(<a href="{{url}}" target="_new">{{url}}</a>)</p>
+      {{/contributors}}
+
+      <h4>License</h4>
+      {{#license}}<p>{{license}}</p>{{/license}}
+      {{#licenses}}
+      <p>{{type}} (<a href="{{url}}" target="_new">{{url}}</a>)</p>
+      {{/licenses}}
+      {{#licenseText}}
+      <pre>{{licenseText}}</pre>
+      {{/licenseText}}      
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>♥ from the Yeoman team</p>
+  </div>
+  {{/pkg}}
+</div>
+
+{{>layout-bottom}}

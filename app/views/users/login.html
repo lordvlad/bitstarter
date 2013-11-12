@@ -1,0 +1,35 @@
+{{>layout-top}}
+
+<style>
+  .input-group { margin-bottom: .5em; }
+</style>
+
+<div class="container">
+
+  {{>layout-header}}
+  {{>layout-messages}}
+
+  <div class="jumbotron">
+    <form class="form form-horizontal" method="post">
+      <p class="lead">
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon">@</span>
+	  <input tabindex="1" type="email" class="form-control" placeholder="email" name="email"/>
+	</div>
+	<div class="input-group input-group-lg">
+	  <span class="input-group-addon"><i class="fa fa-key"></i></span>
+	  <input tabindex="2" type="password" class="form-control" placeholder="password" name="password"/>
+	</div>
+	<div class="input-group">
+	  <button tabindex="3" type="submit" class="btn btn-primary btn-lg">
+	    <i class="fa fa-key"></i> log in
+	  </button>
+	  &nbsp;or <a tabindex="4" href="/signup">sign up</a> for free
+	</div><!-- /.input-group -->
+	<hr />
+	{{>third-party-login}}
+      </p>
+    </form>
+  </div><!--/.jumbotron -->
+</div><!--/.container -->
+{{>layout-bottom}}

@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# get the right working direcotry
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+
+# get current version from git tag
+curr=`git tag | tail -n 1`
+
+# ask for new version if it is not given
+if [ ! $1 ];
+then
+    printf "current version is %s\n" $curr
+    printf "what is the new version? "
+    read   new
+else
+    new=$1
+fi
+
+# change version in files
+files="package.json server.js README.md pub/component.json"
+for file in $files;
+do
+    sed -i.bak -r "s/(version[^\n]+)[0-9]+\.[0-9]+\.[0-9]+/\1$new/" $DIR/$file
+    rm -rf $DIR/$file.bak
+done
+
+
+
+
+
+
+    
