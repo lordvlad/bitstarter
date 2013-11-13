@@ -1,9 +1,8 @@
 {{>layout-top}}
+{{>layout-header}}
 
 <div class="container">
 
-  {{>layout-header}}
-  
   {{#pkg}}
   <div class="jumbotron">
     <h1>About {{name}} {{version}}</h1>
@@ -32,15 +31,12 @@
       {{/licenses}}
       {{#licenseText}}
       <pre>{{licenseText}}</pre>
-      {{/licenseText}}      
+      {{/licenseText}}
 
     </div>
   </div>
 
-  <div class="footer">
-    <p>♥ from the Yeoman team</p>
-  </div>
   {{/pkg}}
 </div>
-
+{{>layout-footer}}
 {{>layout-bottom}}

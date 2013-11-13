@@ -63,3 +63,7 @@ body {
 #profilepicturemodal input[type=file] {
     visibility: hidden;
 }
+
+.input-group {
+    margin-bottom: .5em;
+}

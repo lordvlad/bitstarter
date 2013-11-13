@@ -1,4 +1,4 @@
-define(["jquery", "jasny-bootstrap"], function($){
+define(["jquery", "fileinput"], function($,z){
 
     $(".fileinput").on("click", "[data-trigger=imagecrop]", function(e){
         e.preventDefault()

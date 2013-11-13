@@ -1,10 +1,10 @@
 /*!
  * server.js
- * 
+ *
  * your signs
  * du hast noch kein gebärdenwörterbuch gefunden, was dir gefällt?
  * dann hilf uns ein neues zu gestalten. mit deinen Gebärden
- * 
+ *
  * author:  Waldemar Reusch <waldemar.reusch@googlemail.com> (http://github.com/lordvlad)
  * version: 0.0.1
  */
@@ -45,7 +45,7 @@ app.events.on( '*.begin', function( msg ){
     console.log('       -', e.stack )
     process.exit(1)
 }).once('start', function(){
-    // apply configuration 
+    // apply configuration
     require( './cfg/express.js'               )( app )
 
 }).once( 'express.end.ready', function(){
@@ -73,9 +73,12 @@ app.events.on( '*.begin', function( msg ){
     require( './lib/model-bootstrap'          )( app )
 
 }).once( 'models.end.ready', function(){
-    // configure passport when 
+    // configure passport when
     // models are loaded
     require( './cfg/passport.js'              )( app )
+
+    // enable configuration of require js
+    require( './lib/require-js'               )( app )
 
     // bootstrap controllers when
     // models are loaded
@@ -93,5 +96,5 @@ app.events.on( '*.begin', function( msg ){
     // start application
     app.listen( port )
     app.events.emit( 'application.end.ready', 'application '+ name+' listening on port '+ port )
- 
+
 }).emit('start')

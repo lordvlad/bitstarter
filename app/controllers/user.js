@@ -151,8 +151,11 @@ function profile( req, res ){
     var user = req.profile || req.user
     console.log( user )
     res.render( 'users/profile', {
-	title: user.name,
-	user : user
+	title: user.name
+	, user : user
+        , requirejs : [
+            'js/profile'
+        ]
     })
 }
 
