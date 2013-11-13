@@ -1,11 +1,12 @@
 {
-    "name"                 : "your-signs"
-    ,"version"             : "0.0.0"
-    ,"dependencies"        : {
-        "jquery"           : "latest"
-        ,"font-awesome"    : "latest"
-        ,"bootstrap"       : "latest"
-        ,"jasny-bootstrap" : "https://github.com/jasny/bootstrap.git"
-        ,"requirejs"       : "latest"
+    "name"                  : "your-signs"
+    ,"version"              : "0.0.0"
+    ,"dependencies"         : {
+        "jquery"            : "~2.0.3"
+        ,"font-awesome"     : "~4.0.3"
+        ,"bootstrap"        : "~3.0.2"
+        ,"bootstrap-jasny"  : "~3.0.1"
+        ,"requirejs"        : "~2.1.9"
+        ,"bootstrap-switch" : "latest"
     }
 }
