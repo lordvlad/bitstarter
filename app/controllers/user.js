@@ -156,6 +156,9 @@ function profile( req, res ){
         , requirejs : [
             'js/profile'
         ]
+        , requirecss : [
+            'css/profile'
+        ]
     })
 }
 

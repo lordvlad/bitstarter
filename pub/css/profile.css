@@ -1,0 +1,31 @@
+.profile-picture {
+    position: relative;
+}
+
+.profile-picture div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+    text-decoration: underline;
+    visibility: hidden;
+}
+
+.profile-picture:hover div {
+    visibility: visible;
+}
+
+#profilepicturemodal .fileinput {
+    width: 100%;
+    text-align: center;
+}
+
+#profilepicturemodal .fileinput img {
+    max-height: 400px;
+}
+
+#profilepicturemodal input[type=file] {
+    visibility: hidden;
+}
