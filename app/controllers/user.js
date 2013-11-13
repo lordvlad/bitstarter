@@ -152,6 +152,7 @@ function profile( req, res ){
     console.log( user )
     res.render( 'users/profile', {
 	title: user.name
+        , profile : 'active'
 	, user : user
         , requirejs : [
             'js/profile'

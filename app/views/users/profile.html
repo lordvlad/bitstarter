@@ -84,7 +84,11 @@
           connect
         </a>
         {{/profiles.facebook}}
-
+        {{#profiles.facebook}}
+        <a class="btn btn-default" href="/unauth/facebook">
+          disconnect
+        </a>
+        {{/profiles.facebook}}
       </div><!-- /.col-sm-9 -->
     </div><!-- /.row -->
   </form>
@@ -117,6 +121,11 @@
         {{^profiles.twitter}}
         <a class="btn btn-primary" href="/auth/twitter">
           connect
+        </a>
+        {{/profiles.twitter}}
+        {{#profiles.twitter}}
+        <a class="btn btn-default" href="/unauth/twitter">
+          disconnect
         </a>
         {{/profiles.twitter}}
 
@@ -153,6 +162,11 @@
         {{^profiles.google}}
         <a class="btn btn-primary" href="/auth/google">
           connect
+        </a>
+        {{/profiles.google}}
+        {{#profiles.google}}
+        <a class="btn btn-default" href="/unauth/google">
+          disconnect
         </a>
         {{/profiles.google}}
       </div><!-- /.col-sm-9 -->

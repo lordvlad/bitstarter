@@ -46,7 +46,7 @@ function privacy( req, res ){
 
 function about( req, res ){
     fs.readFile( norm( req.app.get( 'root' ) + '/LICENSE' ), function( err, txt ){
-	res.render( 'home/about', { 
+	res.render( 'home/about', {
 	    about : 'active'
 	    , licenseText : txt
 	})
