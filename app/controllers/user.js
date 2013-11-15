@@ -159,6 +159,7 @@ function profile( req, res ){
         ]
         , requirecss : [
             'css/profile'
+            , 'vendor/bootstrap-switch/static/stylesheets/bootstrap-switch'
         ]
     })
 }
