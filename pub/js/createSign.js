@@ -30,17 +30,19 @@ define(["jquery", "hogan", "typeahead", "capture"], function($,Hogan, x, Capture
         }
     ])
 
-    capture = new Capture("#capture",{
+    var capture = new Capture("#capture",{
         image : null
         , extension : "png"
     })
 
 
-    $capture   = $("#capture")
-    $snapshots = $capture.find(".snapshots")
-    $video     = $capture.find("video")
-    $preview   = $capture.find(".snapshot-preview")
-    $img       = $capture.find("img").detach()
+    , $capture   = $("#capture")
+    , $snapshots = $capture.find(".snapshots")
+    , $video     = $capture.find("video")
+    , $preview   = $capture.find(".snapshot-preview")
+    , $img       = $capture.find(".img-template").removeClass("hide").detach()
+
+    , TOUR = false
 
     $capture
         .on("capture.stream.started", function(){
@@ -48,14 +50,15 @@ define(["jquery", "hogan", "typeahead", "capture"], function($,Hogan, x, Capture
             $capture.find(".capture-start").disable().next().enable().next().enable().next().disable()
             $capture.find(".snapshot-fill").hide()
             $video.show()
+            console.log( TOUR, $(".step2") )
+            TOUR && $(".step2").trigger("click")
         })
         .on("capture.stream.stopped", function(){
             $capture.removeClass("live")
             $capture.find(".capture-start").enable().next().disable().next().disable().next().enable()
         })
         .on("capture.snapshot.taken", function(e, dataURL){
-            $capture.find(".snapshot-flash").addClass("flash-now")
-            $img.clone().attr("src", dataURL).hide().appendTo($snapshots).show('slow')
+            $img.clone().find("img").attr("src", dataURL).end().hide().appendTo($snapshots).show('slow')
         })
 
     $capture.find(".capture-start")
@@ -117,10 +120,42 @@ define(["jquery", "hogan", "typeahead", "capture"], function($,Hogan, x, Capture
 
         })
 
-    $capture.find(".snapshot-snap")
-        .on("click", function(e){
-            e.preventDefault()
-            $capture.trigger("capture.snapshot.take")
+    $capture.find(".snapshot-snap").on("click", function(e){
+        e.preventDefault()
+        $capture.trigger("capture.snapshot.take")
+    })
+
+    $("body").on("click", ".fa-times-circle-o", function(){
+        var $p = $(this).parents(".img-template")
+        $p.hide("slow", function(){ $p.remove() })
+    })
+
+    $(".step1").on("click", function(){$(".step0").popover("destroy");});
+    $(".step0").popover().popover("show");
+    $(".step0, .popover.fade.right.in").on("click", function(){
+        TOUR = true
+        var count = 3
+        $(".step0").popover("destroy")
+        $(".step1").popover().popover("show").on("click", function(){
+            $(".step1").popover("destroy")
+            $(".step2").popover().popover("show")
+            $(".step2, .popover.fade.bottom.in").on("click", function(){
+                $(".step2").popover("destroy")
+                setTimeout( function(){
+                    $(".step3").popover().popover("show").on("click", function(){
+                        if ( --count ) return;
+                        $(".step3").popover("destroy")
+                        $(".step4").popover().popover("show").on("click", function(){
+                            $(".step4").popover("destroy")
+                            $(".step5").popover().popover("show").on("click", function(){
+                                $(".step5").popover("destroy")
+                                TOUR = false
+                            })
+                        })
+                    })
+                }, 100 )
+            })
         })
+    })
 
 })

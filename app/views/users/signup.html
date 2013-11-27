@@ -1,20 +1,16 @@
 {{>layout-top}}
 
-<style>
-  .input-group { margin-bottom: .5em; }
-</style>
-
-<div class="container">
+<section class="container">
 
   {{>layout-header}}
   {{>layout-messages}}
 
-  <div class="jumbotron">
+  <header class="jumbotron">
     <form class="form form-horizontal" method="post">
       <p class="lead">
 	<div class="input-group input-group-lg">
 	  <span class="input-group-addon">@</span>
-	  <input tabindex="1"  type="email" class="form-control" placeholder="email" name="email"/>
+	  <input tabindex="1" type="email" class="form-control" placeholder="email" name="email"/>
 	</div>
 	<div class="input-group input-group-lg">
 	  <span class="input-group-addon"><i class="fa fa-key"></i></span>
@@ -26,15 +22,15 @@
 	</div>
 	<div class="input-group">
 	  <button tabindex="4" type="submit" class="btn btn-primary btn-lg">
-	    <i class="fa fa-key"></i> log in
+	    <i class="fa fa-key"></i>anmelden
 	  </button>
-	  &nbsp;or <a tabindex="5" href="/login">log in</a> with email and password
+	  &nbsp;oder <a tabindex="5" href="/login">einloggen</a> mit Email und Password
 	</div><!-- /.input-group -->
 	<hr />
 	{{>third-party-login}}
       </p>
     </form>
-  </div><!--/.jumbotron -->
-</div><!--/.container -->
+  </header><!--/.jumbotron -->
+</section><!--/.container -->
 {{>layout-footer}}
 {{>layout-bottom}}

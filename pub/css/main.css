@@ -39,3 +39,7 @@ body footer {
 footer li.active a {
     text-decoration: underline;
 }
+
+.form-group {
+    margin-bottom: .5em;
+}

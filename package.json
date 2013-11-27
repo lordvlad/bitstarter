@@ -52,7 +52,8 @@
     "stream-buffers": "~0.2.5",
     "base64stream": "~0.1.1",
     "md5": "~1.0.0",
-    "connect-busboy": "0.0.1"
+    "connect-busboy": "0.0.1",
+    "node-jpgjs": "git://github.com/lordvlad/jpgjs#nodejs"
   },
   "devDependencies": {
     "supertest": "~0.8.1",

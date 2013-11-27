@@ -1,7 +1,10 @@
 {{>layout-top}}
+
+<div class="step2" rel="popover" data-title="Schritt 2:" data-content="Erlaube your-signs, deine Webcam zu benutzen" data-trigger="manual" data-container="body" data-placement="bottom"></div>
+
 {{>layout-header}}
 
-<section class="container">
+<section class="container" >
 
   {{>layout-messages}}
 
@@ -14,19 +17,24 @@
       <div class="col-sm-6">
         <div class="stream ">
           <video autoplay class="img-rounded img-responsive"></video>
-          <div class="snapshot-fill"><i class="fa fa-user"></i></div>
+          <div class="snapshot-fill"><i class="fa fa-user step0" rel="popover" data-title="Hallo" data-content="Bist du das erste mal hier? Klick mich, und ich werde dir die ersten Schritte zeigen." data-trigger="manual" data-container="body" data-placement="right"></i></div>
           <div class="snapshot-preview"></div>
         </div>
         <br>
           <div class="btn-group btn-group-justified">
-            <a href="#" class="btn btn-primary capture-start"><i class="fa fa-circle"></i> Start</a>
-            <a href="#" class="btn btn-default capture-snapshot"><i class="fa fa-camera"></i> Foto</a>
-            <a href="#" class="btn btn-default capture-stop"><i class="fa fa-stop"></i> Stopp</a>
-            <a href="#" class="btn btn-default capture-preview"><i class="fa fa-picture-o"></i> Vorschau</a>
+            <a href="#" class="btn btn-primary capture-start step1" rel="popover" data-title="Schritt 1:" data-content="Klicke auf den Start button" data-trigger="manual" data-container="body" data-placement="top">
+              <i class="fa fa-circle"></i> Start
+            </a>
+            <a href="#" class="btn btn-default capture-snapshot step3" rel="popover" data-title="Schritt 3:" data-content="Mach ein paar Schnappschüsse (mindestens 3)" data-trigger="manual" data-container="body" data-placement="top"><i class="fa fa-camera"></i> Foto</a>
+            <a href="#" class="btn btn-default capture-stop step4" rel="popover" data-title="Schritt 4:" data-content="Halte die Kamera an" data-trigger="manual" data-container="body" data-placement="top"><i class="fa fa-stop"></i> Stopp</a>
+            <a href="#" class="btn btn-default capture-preview step5" rel="popover" data-title="Schritt 5:" data-content="Erstelle eine Vorschau" data-trigger="manual" data-container="body" data-placement="top"><i class="fa fa-picture-o"></i> Vorschau</a>
           </div>
         </div>
         <div class="col-sm-6 snapshots">
-          <img class="img-rounded" src=""/>
+          <div class="col-xs-4 img-template hide">
+            <img class="img-rounded img-responsive" src=""/>
+            <i class="fa fa-times-circle-o fa-lg" title="entfernen"></i>
+          </div>
         </div>
       </div>
       <div class="row">
