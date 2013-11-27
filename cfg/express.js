@@ -30,7 +30,7 @@ exports = module.exports = function( app ) {
         app.set( 'pkg', pkg )
 
         // set some
-        app.set(        'showStackError'                , cfg['viewStackError'] || true )
+        app.set(   'showStackError'                , cfg['viewStackError'] || true )
 
         // set the rendering engine and view paths
         app.engine( cfg['view engine']          , require( cfg['engine'][0] )[cfg['engine'][1]] )
@@ -58,8 +58,9 @@ exports = module.exports = function( app ) {
         app.use( express.favicon()                                           )
         app.use( '/js'    , express.static( root + '/pub/js'               ) )
         app.use( '/css'   , express.static( root + '/pub/css'              ) )
+        app.use( '/img'   , express.static( root + '/pub/img'              ) )
         app.use( '/tmpl'  , express.static( root + app.get( 'views' )      ) )
-        app.use( '/vendor', express.static( root + app.get( 'cfg' ).vendor ) )
+        app.use( '/vendor', express.static( root + cfg.vendor              ) )
 
         // don't use logger for test env
         if ( app.get( 'env' ) !== 'test' ) app.use( express.logger('dev') )
@@ -68,21 +69,23 @@ exports = module.exports = function( app ) {
         // only when accepting file uploads
         app.use( express.json() )
         app.use( express.urlencoded() )
-        if ( cfg.enableFileUploads ) app.use( express.multipart() )
+        if ( cfg.enableFileUploads ) app.use( require( 'connect-busboy' )() )
 
         // simulate DELETE and PUT via _method
         // POST parameter
         app.use( express.methodOverride() )
 
-        // cookies and sessions
+        // cookies, sessions and temporary data
         app.use( express.cookieParser() )
+
+        var redis = new RedisStore(cfg.redis)
+        app.use(function(req, res, next){
+            req.redis = res.redis = req.app.redis = redis
+            next()
+        })
         app.use( express.session({
             secret : cfg.session.secret
-            , store: new RedisStore({
-                host: 'localhost',
-                port: 6379,
-                db: 1,
-            })
+            , store: redis
         }))
 
         // expose package information

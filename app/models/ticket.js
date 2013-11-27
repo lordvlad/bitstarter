@@ -2,7 +2,7 @@
  * app/models/ticket.js
  *
  * Mongoose User model
- * 
+ *
  * author:  Waldemar Reusch <waldemar.reusch@googlemail.com> (http://github.com/lordvlad)
  */
 

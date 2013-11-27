@@ -1,27 +1,28 @@
 <header class="container">
   <ul class="nav nav-pills pull-right">
-    <li class="{{home}}"><a href="/">Home</a></li>
+    <li class="{{home}}"><a href="/">Start</a></li>
+    <li class="{{signsList}}"><a href="/gebaerden">Gebärden</a></li>
     {{#user}}
-    <li class="{{profile}}"><a href="/profile">{{displayname}}</a></li>
+    <li class="{{profile}}"><a title="Profil" href="/profile">{{displayname}}</a></li>
     <li>
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <span class="caret"></span>
       </a>
       <ul class="dropdown-menu pull-right">
-        <li><a href="/options">Options</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li><a title="Einstellungen" href="/options">Einstellungen</a></li>
+        <li><a title="Abmelden" href="/logout">Abmelden</a></li>
       </ul>
     </li>
     {{/user}}
     {{^user}}
-    <li class="{{login}}{{signup}}"><a href="/login">Login</a></li>
+    <li class="{{login}}{{signup}}"><a href="/login">Anmelden</a></li>
     <li>
       <a class="dropdown-toggle" data-toggle="dropdown" href="#">
         <span class="caret"></span>
       </a>
       <ul class="dropdown-menu pull-right">
-        <li><a href="/login">Log In</a></li>
-        <li><a href="/signup">Register</a></li>
+        <li><a href="/login">Anmelden</a></li>
+        <li><a href="/signup">Registrieren</a></li>
         <li class="divider"></li>
         <li><a href="/auth/facebook"><i class="fa fa-facebook fa-fw"></i> facebook</a></li>
         <li><a href="/auth/twitter"><i class="fa fa-twitter fa-fw"></i> twitter</a></li>

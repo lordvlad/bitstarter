@@ -2,10 +2,10 @@
  * module dependencies
  */
 
-var mongoose		= require( 'mongoose' )
-    , User		= mongoose.model( 'User' )
-    , pass		= require( 'passport' )
-    , _                 = require( 'lodash' )
+var mongoose = require( 'mongoose' )
+    , User   = mongoose.model( 'User' )
+    , pass   = require( 'passport' )
+    , _      = require( 'lodash' )
 
 /**
  * variables
@@ -183,7 +183,7 @@ function changeProfile( req, res, next ){
 function findById ( req, res, next, id ){
     User.findById({ _id : id}, function( err, user ){
 	if (  err  ) return next( err )
-	if ( !user ) return next( new Error( 'User not found ' + id))
+	if ( !user ) return next( new Error( 'User '+ id +' nicht gefunden.'))
 	req.profile = user
 	return next()
     })

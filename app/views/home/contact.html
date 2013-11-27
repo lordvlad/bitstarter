@@ -1,20 +1,21 @@
 {{>layout-top}}
 {{>layout-header}}
 
-<div class="container">
+<section class="container">
 
   {{>layout-messages}}
 
-  <div class="jumbotron">
-    <h1>Complaints? Suggestions?</h1>
+  <header class="jumbotron">
+    <h1>Kontakt</h1>
     <form method="POST">
-    <p class="lead">
-      <textarea name="message" class="form-control" rows="3"></textarea>
-    </p>
-    <p><button type="submit" class="btn btn-lg btn-success">Send it!</button></p>
+      <p class="lead">Hast du Verbesserungsvorschläge? Gefällt dir etwas nicht? Oder willst du einfach mal Danke sagen?
   </form>
-  </div>
-</div>
+  </header>
+  <p class="lead">
+    <textarea name="message" class="form-control" rows="3" placeholder="Schreib uns was ..."></textarea>
+  </p>
+  <p><button type="submit" class="btn btn-lg btn-success">Abschicken!</button></p>
+</section>
 
 {{>layout-footer}}
 {{>layout-bottom}}

@@ -91,7 +91,7 @@ app.events.on( '*.begin', function( msg ){
 
     // some variables for logging
     var name   = app.get( 'pkg'  ).name
-        , port = app.get( 'PORT' ) || app.get( 'port' ) || app.get( 'cfg' ).port
+        , port = process.env.PORT || app.get( 'PORT' ) || app.get( 'port' ) || app.get( 'cfg' ).port
 
     // start application
     app.listen( port )

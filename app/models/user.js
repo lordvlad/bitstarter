@@ -91,5 +91,3 @@ UserSchema.methods = {
 
 
 mongoose.model( 'User', UserSchema )
-
-User = mongoose.model( 'User' )

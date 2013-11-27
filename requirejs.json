@@ -5,6 +5,9 @@
         ,"bootstrap"        : "/vendor/bootstrap/dist/js/bootstrap"
         ,"fileinput"        : "/vendor/bootstrap-jasny/js/fileinput"
         ,"switch"           : "/vendor/bootstrap-switch/static/js/bootstrap-switch.min"
+        ,"hogan"            : "/vendor/hogan/web/1.0.0/hogan.min"
+        ,"typeahead"        : "/vendor/typeahead.js/dist/typeahead.min"
+        ,"capture"          : "/vendor/capture/dist/capture"
     }
     ,"shim"                 : {
         "bootstrap"         : {
