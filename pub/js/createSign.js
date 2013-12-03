@@ -113,9 +113,10 @@ define(["jquery", "hogan", "typeahead", "capture"], function($,Hogan, x, Capture
                 $("body").css("cursor","default");
                 $snapshots.hide("slow", function(){ $snapshots.empty() })
                 $video.hide("slow")
-                $img.clone().attr("src", dataurl).appendTo($preview.show("slow"))
-            }).fail(function(){
-                alert(arguments);
+                $img.clone().find("img").attr("src", dataurl).appendTo($preview.show("slow"))
+            }).fail(function( xhr, statusText, err ){
+                console.log( xhr.responseText )
+                alert ( xhr.responseText )
             })
 
         })

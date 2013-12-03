@@ -139,12 +139,29 @@ function createSignView( req, res ){
 
 function createSign( req, res ){
 
-    var encoder = (new GifEncoder( 352, 288 )).createWriteStream({ repeat: 0, delay: 500, quality: 10})
-        , decoder = es.map(function(file, next){
-            switch ( file.mimetype ){
-                case 'image/png' : new PNG( file.buffer ).decode( function(pix){ next( null, pix ) }); break;
-                default : next( new Error( 'unsupportetd filetype ' + file.mimetype )); res.send( 415 )
+    var width, height, gifencoder
+        , encoder = es.through(function write(chunk){
+            that = this
+            if ( !gifencoder ) {
+                gifencoder = new GifEncoder( width, height )
+                    .createWriteStream({ repeat: 0, delay: 500, quality: 10})
+                    .on('data', function(chunk){ that.emit('data', chunk) })
+                    .on('end', function(){ that.emit('end')})
             }
+            gifencoder.write( chunk )
+        }, function end (){
+            gifencoder.end()
+        })
+        , decoder = es.map(function(file, next){
+            var img
+            if ( file.mimetype === 'image/png' ){
+                img = new PNG( file.buffer )
+                width = img.width
+                height = img.height
+                return img.decode( function(pix){ next( null, pix ) })
+            }
+            next( new Error( 'unsupportetd filetype ' + file.mimetype ))
+            res.send( 415 )
         })
         , collector = es.through(function write (chunk){ this.emit('data', chunk) }, function end (){})
         , counter = 1
@@ -158,20 +175,18 @@ function createSign( req, res ){
 
     function createGIF(){
         if ( --counter ) return;
+        console.log( 'stiching up images' )
         var r  = random()
             , p = '/tmp/your-signs/gif/' + r + '.gif'
             , ws = fs.createWriteStream( p ).on( 'finish', finish )
 
         filename = '/tmp/gif/' + r + '.gif'
-        es.readArray( images ).pipe( decoder.on('error',_void) ).pipe( encoder ).pipe( ws )
+        es.readArray( images ).pipe( decoder.on('error', finish) ).pipe( encoder ).pipe( ws )
     }
 
-    function finish(){
+    function finish( err ){
+        if ( err && err.stack ) return [ console.error( err ), res.send( 500, 'server says : ' + err.message + '\n' + JSON.stringify( err.stack, 2, 2 ) ) ]
         res.send( filename, 201 )
-    }
-
-    function addfield( key, value ){
-        fields[ key ] = value;
     }
 
     function addfile( x, file, y, z, mimetype ){
@@ -184,7 +199,7 @@ function createSign( req, res ){
         file.pipe( ws )
     }
 
-    req.pipe( req.busboy.on('file', addfile).on('field', addfield).on('end', createGIF) )
+    req.pipe( req.busboy.on('file', addfile).on('end', createGIF) )
 
 
 }

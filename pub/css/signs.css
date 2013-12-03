@@ -44,3 +44,7 @@
 .fa-times-circle-o:hover {
     color: white;
 }
+
+.snapshot-preview img {
+    margin: 0 auto;
+}
