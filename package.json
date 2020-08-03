@@ -35,7 +35,7 @@
     "passport-twitter": "~1.0.2",
     "passport-facebook": "~1.0.2",
     "passport-google-oauth": "~0.1.5",
-    "mustache": "~0.7.3",
+    "mustache": "~4.0.1",
     "consolidate": "~0.9.1",
     "connect-flash": "~0.1.1",
     "express-device": "~0.3.7",
